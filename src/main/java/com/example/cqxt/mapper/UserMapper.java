@@ -7,7 +7,7 @@ public interface UserMapper {
 
     int insert(User record);
 
-    int insertSelective(User record);
+    void insertSelective(User record);
 
     User selectByPrimaryKey(Integer id);
 
@@ -17,5 +17,7 @@ public interface UserMapper {
 
     User selectByUsernamePassword(String username, String password);
 
-    //List<User> selectUserByName(String name);
+    User selectByUsername(String username);
+
+    User selectByEmail(String email);
 }

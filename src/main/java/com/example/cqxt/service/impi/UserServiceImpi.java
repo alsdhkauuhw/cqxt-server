@@ -1,5 +1,6 @@
 package com.example.cqxt.service.impi;
 
+import org.apache.ibatis.jdbc.Null;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -36,6 +37,48 @@ public class UserServiceImpi implements UserSrevice{
             return true;
         }else{
             return false;
+        }
+    }
+
+    @Override
+    public sin checkUsername(UserRequest checkRequest, HttpSession session) {
+        // TODO Auto-generated method stub
+        String username = checkRequest.getUsename();
+        if(usermapper.selectByUsername(username) != null){
+            return sin.error("该账号已被使用");
+        }else {
+            return sin.success("该账号可以使用");
+        }
+    }
+
+    @Override
+    public sin checkEmail(UserRequest checkRequest, HttpSession session) {
+        // TODO Auto-generated method stub
+        String email = checkRequest.getEmail();
+        if(usermapper.selectByEmail(email) != null){
+            return sin.error("该邮箱已被使用");
+        }else {
+            return sin.success("该邮箱可以使用");
+        }
+    }
+
+    @Override
+    public sin signup(UserRequest signupRequest, HttpSession session) {
+        // TODO Auto-generated method stub
+        User user = new User();
+        //user.setId(signupRequest.getId());
+        user.setUsername(signupRequest.getUsename());
+        user.setPassword(signupRequest.getPassword());
+        //user.setSex(signupRequest.isSex());
+        //user.setPhonenum(signupRequest.getPhonenum());
+        user.setEmail(signupRequest.getEmail());
+        //user.setAvatar(signupRequest.getAvatar());
+        user.setName(signupRequest.getName());
+        usermapper.insertSelective(user);
+        if (usermapper.selectByUsername(user.getUsername()) != null) {
+            return sin.success("注册成功");
+        }else{
+            return sin.error("注册失败");
         }
     }
     

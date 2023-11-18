@@ -12,4 +12,7 @@ public interface UserSrevice {
 
     sin loginStatus(UserRequest loginRequest, HttpSession session);
     boolean verityPasswd(String username, String password);
+    sin checkUsername(UserRequest checkRequest, HttpSession session);
+    sin checkEmail(UserRequest checkRequest, HttpSession session);
+    sin signup(UserRequest signupRequest, HttpSession session);
 }

@@ -20,6 +20,21 @@
     from user
     where id = #{id,jdbcType=INTEGER}
   </select>
+
+  <select id="selectByUsername" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from User
+    where username = #{username, jdbcType=VARCHAR} 
+  </select>
+
+  <select id="selectByEmail" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from User
+    where email = #{email, jdbcType=VARCHAR}
+  </select>
+
   <select id="selectByUsernamePassword" parameterType="java.lang.String" resultMap="BaseResultMap">
     select
     <include refid="Base_Column_List" />

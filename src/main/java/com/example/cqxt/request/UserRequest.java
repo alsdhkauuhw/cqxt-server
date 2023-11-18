@@ -13,7 +13,9 @@ public class UserRequest {
       private String password;
       private boolean sex;
       private String phonenum;
+      @JsonProperty("email")
       private String email;
       private String avatar;
+      @JsonProperty("name")
       private String name;
 }
