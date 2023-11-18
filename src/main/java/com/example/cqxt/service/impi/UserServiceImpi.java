@@ -1,6 +1,5 @@
 package com.example.cqxt.service.impi;
 
-import org.apache.ibatis.jdbc.Null;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -80,6 +79,6 @@ public class UserServiceImpi implements UserSrevice{
         }else{
             return sin.error("注册失败");
         }
-    }
+    } 
     
 }
