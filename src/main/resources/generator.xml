@@ -14,7 +14,7 @@
             <property name="suppressAllComments" value="true"/>
         </commentGenerator>
         <jdbcConnection driverClass="com.mysql.cj.jdbc.Driver"
-                        connectionURL="jdbc:mysql://localhost:3306/cqxt?serverTimezone=UTC&useSSL=false"
+                        connectionURL="jdbc:mysql://localhost:3306/cqxt?serverTimezone=UTC"
                         userId="root" password="136623">
                         <property name="nullCatalogMeansCurrent" value="true" />
         </jdbcConnection>
@@ -38,11 +38,13 @@
             <property name="enableSubPackages" value="true"/>
         </javaClientGenerator>
         <!--配置数据库中的表名，生成的Bean名，以及生成哪些方法-->
-        <table schema="cqxt" tableName="user" enableCountByExample="false"
+        <table schema="cqxt" tableName="dormitory" enableCountByExample="false"
                enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false"
                selectByExampleQueryId="flase">
-    
-            <!-- <property name="useActualColumnNames" value="true"/> -->
+        </table>
+        <table schema="cqxt" tableName="student" enableCountByExample="false"
+               enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="flase">
         </table>
     </context>
 </generatorConfiguration>

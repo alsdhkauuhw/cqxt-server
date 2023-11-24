@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.cqxt.mapper.StudentMapper">
+  <resultMap id="BaseResultMap" type="com.example.cqxt.beans.Student">
+    <id column="student_id" jdbcType="INTEGER" property="studentId" />
+    <result column="user_id" jdbcType="INTEGER" property="userId" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="gender" jdbcType="VARCHAR" property="gender" />
+    <result column="date_of_birth" jdbcType="DATE" property="dateOfBirth" />
+    <result column="major" jdbcType="VARCHAR" property="major" />
+    <result column="dormitory_id" jdbcType="INTEGER" property="dormitoryId" />
+    <result column="initial_score" jdbcType="INTEGER" property="initialScore" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    student_id, user_id, name, gender, date_of_birth, major, dormitory_id, initial_score
+  </sql>
+  
+</mapper>
