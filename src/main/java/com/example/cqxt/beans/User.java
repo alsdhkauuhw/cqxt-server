@@ -1,7 +1,6 @@
 package com.example.cqxt.beans;
 
 import lombok.Data;
-
 @Data
 public class User {
     private Integer id;

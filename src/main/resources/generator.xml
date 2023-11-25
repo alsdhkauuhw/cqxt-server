@@ -38,11 +38,13 @@
             <property name="enableSubPackages" value="true"/>
         </javaClientGenerator>
         <!--配置数据库中的表名，生成的Bean名，以及生成哪些方法-->
-        <table schema="cqxt" tableName="dormitory" enableCountByExample="false"
+        <table schema="cqxt" tableName="daily_check" enableCountByExample="false"
                enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false"
-               selectByExampleQueryId="flase">
-        </table>
+               selectByExampleQueryId="flase"></table>
         <table schema="cqxt" tableName="student" enableCountByExample="false"
+               enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="flase"></table>
+        <table schema="cqxt" tableName="dormitory" enableCountByExample="false"
                enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false"
                selectByExampleQueryId="flase">
         </table>

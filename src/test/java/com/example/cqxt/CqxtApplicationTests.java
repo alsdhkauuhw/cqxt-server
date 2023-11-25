@@ -1,16 +1,25 @@
 package com.example.cqxt;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-
-import com.example.cqxt.beans.User;
+import com.example.cqxt.beans.DailyCheck;
+import com.example.cqxt.beans.Student;
+import com.example.cqxt.mapper.DailyCheckMapper;
+import com.example.cqxt.mapper.StudentMapper;
 import com.example.cqxt.mapper.UserMapper;
 
 @SpringBootTest
 class CqxtApplicationTests {
 	@Autowired
 	private UserMapper usermapper;
+	@Autowired
+	private DailyCheckMapper dailyCheckMapper;
+	@Autowired
+	private StudentMapper studentMapper;
 	/* @Test
 	void contextLoads() {
 		User user = new User();
@@ -24,15 +33,18 @@ class CqxtApplicationTests {
 		user.setName("asda");
 		usermapper.insert(user);
 	} */
-	@Test
+/* 	@Test
 	void selectTest(){
-		System.out.println(1);
-		User user = usermapper.selectByUsernamePassword("114514", "114514");
-		if (user.getId() != 1) {
-			System.out.println("错误");
-		}
-		System.out.println("1111");
-		System.out.println(user.getId());
-	}
+		Student student = new Student();
+		student.setStudentId(123455);
+		student.setUserId(2);
+		student.setName("梨花");
+		student.setGender("女");
+		student.setMajor("2021");		
+		student.setDormitoryId(233);
+		student.setInitialScore(100);
+		studentMapper.insert(student);
 
+    } */
 }
+

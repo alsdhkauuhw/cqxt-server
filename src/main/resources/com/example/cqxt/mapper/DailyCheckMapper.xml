@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.cqxt.mapper.DailyCheckMapper">
+  <resultMap id="BaseResultMap" type="com.example.cqxt.beans.DailyCheck">
+    <id column="check_id" jdbcType="INTEGER" property="checkId" />
+    <result column="student_id" jdbcType="INTEGER" property="studentId" />
+    <result column="check_date" jdbcType="DATE" property="checkDate" />
+    <result column="blanket_folding_score" jdbcType="INTEGER" property="blanketFoldingScore" />
+    <result column="garbage_disposal_score" jdbcType="INTEGER" property="garbageDisposalScore" />
+    <result column="desktop_organization_score" jdbcType="INTEGER" property="desktopOrganizationScore" />
+    <result column="hygiene_score" jdbcType="INTEGER" property="hygieneScore" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    check_id, student_id, check_date, blanket_folding_score, garbage_disposal_score, 
+    desktop_organization_score, hygiene_score
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from daily_check
+    where check_id = #{checkId,jdbcType=INTEGER}
+  </select>
+  <select id="selectByStudentId" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from daily_check
+    where student_id = #{studentId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from daily_check
+    where check_id = #{checkId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.example.cqxt.beans.DailyCheck">
+    insert into daily_check (check_id, student_id, check_date, 
+      blanket_folding_score, garbage_disposal_score, 
+      desktop_organization_score, hygiene_score)
+    values (#{checkId,jdbcType=INTEGER}, #{studentId,jdbcType=INTEGER}, #{checkDate,jdbcType=DATE}, 
+      #{blanketFoldingScore,jdbcType=INTEGER}, #{garbageDisposalScore,jdbcType=INTEGER}, 
+      #{desktopOrganizationScore,jdbcType=INTEGER}, #{hygieneScore,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.example.cqxt.beans.DailyCheck">
+    insert into daily_check
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="checkId != null">
+        check_id,
+      </if>
+      <if test="studentId != null">
+        student_id,
+      </if>
+      <if test="checkDate != null">
+        check_date,
+      </if>
+      <if test="blanketFoldingScore != null">
+        blanket_folding_score,
+      </if>
+      <if test="garbageDisposalScore != null">
+        garbage_disposal_score,
+      </if>
+      <if test="desktopOrganizationScore != null">
+        desktop_organization_score,
+      </if>
+      <if test="hygieneScore != null">
+        hygiene_score,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="checkId != null">
+        #{checkId,jdbcType=INTEGER},
+      </if>
+      <if test="studentId != null">
+        #{studentId,jdbcType=INTEGER},
+      </if>
+      <if test="checkDate != null">
+        #{checkDate,jdbcType=DATE},
+      </if>
+      <if test="blanketFoldingScore != null">
+        #{blanketFoldingScore,jdbcType=INTEGER},
+      </if>
+      <if test="garbageDisposalScore != null">
+        #{garbageDisposalScore,jdbcType=INTEGER},
+      </if>
+      <if test="desktopOrganizationScore != null">
+        #{desktopOrganizationScore,jdbcType=INTEGER},
+      </if>
+      <if test="hygieneScore != null">
+        #{hygieneScore,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.example.cqxt.beans.DailyCheck">
+    update daily_check
+    <set>
+      <if test="studentId != null">
+        student_id = #{studentId,jdbcType=INTEGER},
+      </if>
+      <if test="checkDate != null">
+        check_date = #{checkDate,jdbcType=DATE},
+      </if>
+      <if test="blanketFoldingScore != null">
+        blanket_folding_score = #{blanketFoldingScore,jdbcType=INTEGER},
+      </if>
+      <if test="garbageDisposalScore != null">
+        garbage_disposal_score = #{garbageDisposalScore,jdbcType=INTEGER},
+      </if>
+      <if test="desktopOrganizationScore != null">
+        desktop_organization_score = #{desktopOrganizationScore,jdbcType=INTEGER},
+      </if>
+      <if test="hygieneScore != null">
+        hygiene_score = #{hygieneScore,jdbcType=INTEGER},
+      </if>
+    </set>
+    where check_id = #{checkId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.example.cqxt.beans.DailyCheck">
+    update daily_check
+    set student_id = #{studentId,jdbcType=INTEGER},
+      check_date = #{checkDate,jdbcType=DATE},
+      blanket_folding_score = #{blanketFoldingScore,jdbcType=INTEGER},
+      garbage_disposal_score = #{garbageDisposalScore,jdbcType=INTEGER},
+      desktop_organization_score = #{desktopOrganizationScore,jdbcType=INTEGER},
+      hygiene_score = #{hygieneScore,jdbcType=INTEGER}
+    where check_id = #{checkId,jdbcType=INTEGER}
+  </update>
+  
+</mapper>

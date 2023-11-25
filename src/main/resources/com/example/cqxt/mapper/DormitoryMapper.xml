@@ -10,5 +10,74 @@
   <sql id="Base_Column_List">
     dormitory_id, dormitory_name, floor, building
   </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from dormitory
+    where dormitory_id = #{dormitoryId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from dormitory
+    where dormitory_id = #{dormitoryId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.example.cqxt.beans.Dormitory">
+    insert into dormitory (dormitory_id, dormitory_name, floor, 
+      building)
+    values (#{dormitoryId,jdbcType=INTEGER}, #{dormitoryName,jdbcType=VARCHAR}, #{floor,jdbcType=INTEGER}, 
+      #{building,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.example.cqxt.beans.Dormitory">
+    insert into dormitory
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="dormitoryId != null">
+        dormitory_id,
+      </if>
+      <if test="dormitoryName != null">
+        dormitory_name,
+      </if>
+      <if test="floor != null">
+        floor,
+      </if>
+      <if test="building != null">
+        building,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="dormitoryId != null">
+        #{dormitoryId,jdbcType=INTEGER},
+      </if>
+      <if test="dormitoryName != null">
+        #{dormitoryName,jdbcType=VARCHAR},
+      </if>
+      <if test="floor != null">
+        #{floor,jdbcType=INTEGER},
+      </if>
+      <if test="building != null">
+        #{building,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.example.cqxt.beans.Dormitory">
+    update dormitory
+    <set>
+      <if test="dormitoryName != null">
+        dormitory_name = #{dormitoryName,jdbcType=VARCHAR},
+      </if>
+      <if test="floor != null">
+        floor = #{floor,jdbcType=INTEGER},
+      </if>
+      <if test="building != null">
+        building = #{building,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where dormitory_id = #{dormitoryId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.example.cqxt.beans.Dormitory">
+    update dormitory
+    set dormitory_name = #{dormitoryName,jdbcType=VARCHAR},
+      floor = #{floor,jdbcType=INTEGER},
+      building = #{building,jdbcType=VARCHAR}
+    where dormitory_id = #{dormitoryId,jdbcType=INTEGER}
+  </update>
   
 </mapper>

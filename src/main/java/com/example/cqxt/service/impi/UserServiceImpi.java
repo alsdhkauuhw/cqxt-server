@@ -23,8 +23,8 @@ public class UserServiceImpi implements UserSrevice{
         if (this.verityPasswd(username, password)) {
             session.setAttribute("username", username);
             User user = new User();
-            user.setUsername(username);
-            return sin.success("登入成功");
+            user = usermapper.selectByUsernamePassword(username, password);
+            return sin.success("登入成功", user);
         }else{
             return sin.error("用户名或密码错误");
         }
