@@ -37,4 +37,8 @@ public class UserController {
     public sin signup(@RequestBody UserRequest signupRequest, HttpSession session){
         return userSrevice.signup(signupRequest, session);
     }
+    @PostMapping("/user/validToken")
+    public sin validToken(@RequestBody UserRequest tokenRequest, HttpSession session){
+        return userSrevice.validToken(tokenRequest, session);
+    }
 }

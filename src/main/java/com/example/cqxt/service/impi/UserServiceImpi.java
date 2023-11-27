@@ -79,6 +79,18 @@ public class UserServiceImpi implements UserSrevice{
         }else{
             return sin.error("注册失败");
         }
+    }
+    //验证令牌，现在先用id代替，可能有安全风险
+    @Override
+    public sin validToken(UserRequest tokenRequest, HttpSession session) {
+        // TODO Auto-generated method stub
+        User user = new User();
+        if (usermapper.selectByPrimaryKey(tokenRequest.getId()) != null) {
+            user = usermapper.selectByPrimaryKey(tokenRequest.getId());
+            return sin.success("验证成功", user);
+        } else {
+            return sin.error("验证失败");
+        }
     } 
     
 }

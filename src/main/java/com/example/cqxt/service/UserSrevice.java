@@ -15,4 +15,5 @@ public interface UserSrevice {
     sin checkUsername(UserRequest checkRequest, HttpSession session);
     sin checkEmail(UserRequest checkRequest, HttpSession session);
     sin signup(UserRequest signupRequest, HttpSession session);
+    sin validToken(UserRequest tokenRequest, HttpSession session);
 }
