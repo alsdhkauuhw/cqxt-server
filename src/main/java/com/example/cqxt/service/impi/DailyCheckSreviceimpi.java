@@ -29,7 +29,7 @@ public class DailyCheckSreviceimpi implements DailyCheckSrevice{
         student = studentMapper.selectByUserId(dailyRequest.getUserId());
         dailyCheck = dailyCheckMapper.selectByStudentId(student.getStudentId());
         if (dailyCheck != null) {
-            return sin.success("搜索成功", dailyCheck.get(dailyCheck.size() - 1));
+            return sin.success("搜索成功", dailyCheck/* dailyCheck.get(dailyCheck.size() - 1) */);
         } else {
             return sin.error("搜索失败");
         }
