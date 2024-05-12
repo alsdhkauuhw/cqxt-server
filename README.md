@@ -1,4 +1,4 @@
-# 大学生宿舍管理系统-管理员页面
+# 大学生宿舍管理系统
 一个简易的springboot项目，用于实现一个简单的宿舍管理系统  
 ## 项目链接
 前端项目：[cqxt-cli](https://github.com/alsdhkauuhw/cqxt-manage "悬停显示")  
